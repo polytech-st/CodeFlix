@@ -26,7 +26,6 @@ section {
   width: 100%;
 }
 
-
 ol,
 ul {
   list-style: none;
@@ -175,7 +174,7 @@ input::placeholder {
 /* ------------------------------------------ */
 
 .poster-container {
-  max-width:100% ;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 80px;
   background-color: #28272a;
@@ -186,7 +185,7 @@ input::placeholder {
   font-weight: 500;
   margin: 40px 0 20px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   color: #fff;
   padding-top: 80px;
@@ -223,7 +222,7 @@ input::placeholder {
   position: relative;
   font-size: 20px;
   margin: 10px 0 4px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #fff;
 }
@@ -245,7 +244,6 @@ input::placeholder {
   font-weight: 300;
   color: #9a9a9a;
   font-family: "Montserrat Alternates", sans-serif;
-
 }
 
 /* ----------------------------------------------------- */
@@ -259,7 +257,6 @@ footer {
 
 .footer-container {
   background-color: #0a3362;
-  margin-top: 100px;
 }
 
 .footer-content {
