@@ -235,16 +235,17 @@ h2 {
 }
 
 .poster p {
+  display: block;
+  margin-top: 15px;
   font-size: 14px;
   font-style: italic;
-  margin: 0;
-    color: #9a9a9a;
+  color: #9a9a9a;
   font-family: "Montserrat", sans-serif;
 }
 
 .poster span {
   display: block;
-  margin-top: 5px;
+  margin-top: 10px;
   font-size: 14px;
   color: #aaa;
   color: #9a9a9a;
