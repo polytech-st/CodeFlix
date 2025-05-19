@@ -20,6 +20,12 @@ body {
   font-size: 100%;
   line-height: 1;
   font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+section {
+  width: 100%;
 }
 
 ol,
@@ -29,9 +35,8 @@ ul {
 
 a {
   text-decoration: none;
+  color: #fff;
 }
-
-/* ----------------------------------------------------------- */
 
 button {
   cursor: pointer;
@@ -50,14 +55,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 200px;
+  padding: 30px 200px;
   color: #fff;
 }
 
 .header-logo::before {
   content: "";
   display: block;
-  background-image: url("/images/logo-icon.png");
+  background-image: url("./images/logo-icon.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -94,6 +99,7 @@ header {
   padding: 10px 0;
   transition: color 0.3s;
   font-weight: 500;
+  color: #fff;
 }
 
 .header-nav a::after {
@@ -120,6 +126,7 @@ header {
   background-color: #0a3362;
   height: 30px;
   width: 30px;
+  vertical-align: middle;
 }
 
 .search-form {
@@ -139,11 +146,13 @@ header {
   background-color: transparent;
   color: white;
   outline: none;
+  font-family: "Montserrat", sans-serif;
 }
 
 input::placeholder {
   color: #fff;
   opacity: 0.5;
+  font-family: "Montserrat", sans-serif;
 }
 
 .search-form button {
@@ -167,19 +176,50 @@ input::placeholder {
   height: 40px;
 }
 
-/* ------------------------------------------ */
+.bg-video {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
 
+.bg-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
 
-.poster-container {
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 0 80px;
-  background-color: #28272A;
-  padding-top: 100px; 
-  padding-bottom: 100px; 
-  margin-top: -100px;
-  margin-bottom: -100px;
+.bg-video .effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.bg-video .video-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+}
+
+.video-text h1 {
+    font-size: 48px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
 h2 {
@@ -190,6 +230,27 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   color:#fff;
+}
+
+.poster-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+  background-color: #28272A;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.poster-container h2 {
+  font-weight: 500;
+  margin: 40px 0 20px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  padding-top: 80px;
+  padding-bottom: 40px;
 }
 
 .poster-row {
@@ -203,18 +264,41 @@ h2 {
 }
 
 .poster {
-  width: 150px; 
   width: 250px;
   text-align: center;
 }
 
-.poster img {
+.swiper-area-wrapper {
+    position: relative;
+}
+
+.swiper-container {
   width: 100%;
-  border-radius: 5px;
-  height: 380px;
+  padding: 10px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  align-items: stretch;
+}
+
+.swiper-slide.poster {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.poster img {
+  width: 90%;
+  height: 500px;
   object-fit: cover;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 10px;
 }
 
 .poster img:hover {
@@ -222,34 +306,95 @@ h2 {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+.poster h3,
+.poster p,
+.poster span {
+  width: 70%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .poster h3 {
-  font-size: 18px;
-  margin: 10px 0 5px;
   cursor: pointer;
   position: relative;
-  font-size: 20px;
+  font-size: 30px;
   margin: 10px 0 4px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
+  min-height: 40px;
 }
 
 .poster p {
-  display: block;
-  margin-top: 15px;
-  font-size: 14px;
+  padding-top: 8px;
+  font-size: 17px;
   font-style: italic;
+  margin: 0 0 8px 0;
   color: #9a9a9a;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
+  flex-grow: 1;
 }
 
 .poster span {
+  padding-top: 8px;
   display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #aaa;
+  font-size: 16px;
+  font-weight: 300;
   color: #9a9a9a;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 40% !important;
+    transform: translateY(-50%) !important;
+    width: 24px;
+    height: 24px;
+    z-index: 20;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    transition: opacity 0.3s ease;
+}
+
+.swiper-button-prev {
+    left: 30px !important;
+}
+
+.swiper-button-next {
+    right: 30px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.swiper-pagination {
+    position: relative;
+    bottom: auto;
+    padding-top: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 0.5;
+    margin: 0 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ffffff;
+    opacity: 1;
 }
 
 footer {
@@ -270,18 +415,21 @@ footer {
   align-items: center;
   padding: 30px 200px;
   color: #fff;
+  flex-wrap: wrap;
 }
 
 .contacts {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 10px;
 }
 
 .network a {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #fff;
 }
 
 .network-icon {
@@ -289,12 +437,9 @@ footer {
   width: 30px;
 }
 
-a {
-  color: #fff;
-}
-
 footer a {
   font-family: "Montserrat Alternates", sans-serif;
+  color: #fff;
 }
 
 .copyright {
@@ -306,38 +451,114 @@ footer a {
   font-size: 16px;
 }
 
-/* ----------------------------------------- */
-.bg-video {
-  height: 70vh;
-  width: 100%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 1200px) {
+    .header-content, .footer-content {
+        padding: 30px 100px;
+    }
+    .poster-container {
+        padding: 0 60px;
+        padding-bottom: 60px;
+    }
+    .swiper-button-prev {
+        left: 30px;
+    }
+    .swiper-button-next {
+        right: 30px;
+    }
 }
 
-.bg-video video {
-  height: 70vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  z-index: 1;
+@media (max-width: 992px) {
+    .header-content, .footer-content {
+        padding: 30px 50px;
+    }
+    .poster-container {
+        padding: 0 40px;
+        padding-bottom: 50px;
+    }
+    .swiper-button-prev {
+        left: 25px;
+    }
+    .swiper-button-next {
+        right: 25px;
+    }
+    .poster img {
+        height: 400px;
+    }
 }
 
-.effect {
-  height: 70vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.251);
-}
-
-.video-text {
-  color: white;
-  z-index: 2;
+@media (max-width: 768px) {
+  .header-content {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+  }
+  header {
+      height: auto;
+  }
+  .header-nav {
+      gap: 15px;
+      font-size: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  .search-form {
+      width: 90%;
+      max-width: 300px;
+  }
+  .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+  }
+  .footer-container {
+      margin-top: 40px;
+  }
+  footer {
+      height: auto;
+  }
+  .contacts {
+      margin-top: 20px;
+      align-items: center;
+  }
+  .poster-container {
+      padding: 0 10px;
+      padding-bottom: 40px;
+  }
+  .poster-container h2 {
+      padding-top: 40px;
+      padding-bottom: 20px;
+      font-size: 20px;
+  }
+  .swiper-button-prev, .swiper-button-next  {
+      width: 20px;
+      height: 20px;
+      box-shadow: none;
+  }
+   .swiper-button-next::after,
+   .swiper-button-prev::after {
+      font-size: 16px;
+  }
+  .poster h3 {
+      font-size: 18px;
+      min-height: 36px;
+  }
+  .poster p {
+      font-size: 12px;
+  }
+  .poster span {
+      font-size: 12px;
+  }
+  .poster img {
+      height: 300px;
+      width: 80%;
+  }
+  .poster h3,
+  .poster p,
+  .poster span {
+      width: 80%;
+  }
+  .video-text h1 {
+      font-size: 32px;
+  }
 }
