@@ -191,6 +191,7 @@
                 slidesPerView: 4,
                 slidesPerGroup: 1,
                 spaceBetween: 30,
+                speed: 300,
                 pagination: {
                     el: paginationClass,
                     clickable: true,
@@ -199,12 +200,60 @@
                     nextEl: nextButtonClass,
                     prevEl: prevButtonClass,
                 },
-                mousewheel: true, 
+                mousewheel: false,
             });
         }
 
         const friendsSwiper = initSwiper('.friends-swiper', '.friends-pagination', '.friends-button-next', '.friends-button-prev');
         const familySwiper = initSwiper('.family-swiper', '.family-pagination', '.family-button-next', '.family-button-prev');
+
+        function addCustomWheelControl(swiperInstance) {
+            if (!swiperInstance || !swiperInstance.el || swiperInstance.destroyed) {
+                return;
+            }
+
+            let lastWheelEventTime = 0;
+            let slideInProgress = false; 
+            const GESTURE_MIN_PAUSE = 150; 
+
+            swiperInstance.el.addEventListener('wheel', function(event) {
+                if (swiperInstance.destroyed) {
+                    return;
+                }
+
+                const now = Date.now();
+                const deltaX = event.deltaX;
+                const deltaY = event.deltaY;
+                const minHorizontalDelta = 1;
+
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) >= minHorizontalDelta) {
+                    event.preventDefault();
+
+                    const timeSinceLastEvent = now - lastWheelEventTime;
+                    
+                    if (!slideInProgress) {
+                        if (timeSinceLastEvent > GESTURE_MIN_PAUSE) {
+                            slideInProgress = true;
+
+                            if (deltaX > 0) {
+                                swiperInstance.slideNext();
+                            } else {
+                                swiperInstance.slidePrev();
+                            }
+
+                            const animationCooldown = (swiperInstance.params.speed || 300) + 50;
+                            setTimeout(() => {
+                                slideInProgress = false;
+                            }, animationCooldown);
+                        }
+                    }
+                    lastWheelEventTime = now; 
+                }
+            }, { passive: false });
+        }
+
+        addCustomWheelControl(friendsSwiper);
+        addCustomWheelControl(familySwiper);
     </script>
 </body>
 </html>
