@@ -189,9 +189,9 @@
             return new Swiper(containerClass, {
                 loop: true,
                 slidesPerView: 4,
-                slidesPerGroup: 1,
+                slidesPerGroup: 1, 
                 spaceBetween: 30,
-                speed: 300,
+                speed: 300, 
                 pagination: {
                     el: paginationClass,
                     clickable: true,
@@ -212,16 +212,13 @@
                 return;
             }
 
-            let lastWheelEventTime = 0;
-            let slideInProgress = false; 
-            const GESTURE_MIN_PAUSE = 150; 
+            let canSlide = true; 
 
             swiperInstance.el.addEventListener('wheel', function(event) {
                 if (swiperInstance.destroyed) {
                     return;
                 }
 
-                const now = Date.now();
                 const deltaX = event.deltaX;
                 const deltaY = event.deltaY;
                 const minHorizontalDelta = 1;
@@ -229,25 +226,17 @@
                 if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) >= minHorizontalDelta) {
                     event.preventDefault();
 
-                    const timeSinceLastEvent = now - lastWheelEventTime;
-                    
-                    if (!slideInProgress) {
-                        if (timeSinceLastEvent > GESTURE_MIN_PAUSE) {
-                            slideInProgress = true;
-
-                            if (deltaX > 0) {
-                                swiperInstance.slideNext();
-                            } else {
-                                swiperInstance.slidePrev();
-                            }
-
-                            const animationCooldown = (swiperInstance.params.speed || 300) + 50;
-                            setTimeout(() => {
-                                slideInProgress = false;
-                            }, animationCooldown);
+                    if (canSlide) { 
+                        if (deltaX > 0) {
+                            swiperInstance.slideNext();
+                        } else {
+                            swiperInstance.slidePrev();
                         }
+                        canSlide = false; 
+                        setTimeout(() => {
+                            canSlide = true;
+                        }, swiperInstance.params.speed);
                     }
-                    lastWheelEventTime = now; 
                 }
             }, { passive: false });
         }
