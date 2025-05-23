@@ -1,42 +1,33 @@
-const link = document.createElement("link");
-link.rel = "stylesheet";
-link.href = "../Header/header.css"; // шлях відносно index.html
-document.head.appendChild(link);
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
+  const searchForm = document.querySelector(".search-form");
+  let friendsSwiper, familySwiper;
 
-// 2. Завантажуємо HTML
-fetch("../Header/header.html")
-  .then((response) => response.text())
-  .then((data) => {
-    document.getElementById("header").innerHTML = data;
-  }); 
+  function initSwipers() {
+    if (friendsSwiper) friendsSwiper.destroy(true, true);
+    if (familySwiper) familySwiper.destroy(true, true);
+  }
 
-  document.getElementById('searchInput').addEventListener('input', function() {
-    const query = this.value.toLowerCase();
-    const elements = document.querySelectorAll('[data-name]');
-
-    elements.forEach(el => {
-        const name = el.getAttribute('data-name').toLowerCase();
-        if (name.includes(query)) {
-            el.style.display = ''; // показати
-        } else {
-            el.style.display = 'none'; // приховати
-        }
+  function filterSlides(swiperSelector) {
+    const query = searchInput.value.trim().toLowerCase();
+    const swiperWrapper = document.querySelector(`${swiperSelector} .swiper-wrapper`);
+    const slides = swiperWrapper.querySelectorAll('.swiper-slide');
+    slides.forEach(slide => {
+      const name = slide.dataset.name ? slide.dataset.name.toLowerCase() : '';
+      slide.style.display = name.includes(query) ? '' : 'none';
     });
+  }
+
+  initSwipers();
+  
+  searchInput.addEventListener("input", function () {
+    filterSlides('.friends-swiper');
+    filterSlides('.family-swiper');
+  });
+
+  searchForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    filterSlides('.friends-swiper');
+    filterSlides('.family-swiper');
+  });
 });
-
-  // const searchInput = document.getElementById("search");
-
-  // searchInput.addEventListener("input", function () {
-  //   const query = this.value.toLowerCase();
-  //   const items = document.querySelectorAll(".swiper-slide poster");
-
-  //   items.forEach(item => {
-  //     console.log(item);
-  //     const name = item.dataset.name.toLowerCase();
-  //     if (name.includes(query)) {
-  //       item.classList.remove("hidden");
-  //     } else {
-  //       item.classList.add("hidden");
-  //     }
-    // });
-  // });
