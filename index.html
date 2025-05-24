@@ -16,6 +16,23 @@
                 <a href="#" class="header-logo"> CodeFlix </a>
                 <form class="search-form">
                     <input type="text" id="searchInput" placeholder="Пошук..." />
+                    <select id="genreSelect">
+                        <option value="">Всі жанри</option>
+                        <option value="Екшн">Екшн</option>
+                        <option value="Пригоди">Пригоди</option>
+                        <option value="Фентезі">Фентезі</option> 
+                        <option value="Жахи">Жахи</option>
+                        <option value="Комедія">Комедія</option>
+                        <option value="Аніме">Аніме</option>
+                        <option value="Анімація">Анімація</option>
+                        <option value="Містика">Містика</option>
+                        <option value="Драма">Драма</option>
+                        <option value="Мультфільм">Мультфільм</option>
+                        <option value="Дитячий">Дитячий</option>
+                        <option value="Наукова фантастика">Наукова фантастика</option>
+                        <option value="Сімейний">Сімейний</option>
+                        <option value="Біографія">Біографія</option>
+                    </select>
                     <button type="submit">
                         <img src="./images/search.png" alt="Пошук" />
                     </button>
@@ -44,49 +61,49 @@
           <div class="swiper-area-wrapper">
               <div class="swiper-container friends-swiper">
                   <div class="swiper-wrapper">
-                      <div data-name="Сонік 3" class="swiper-slide poster">
+                      <div data-name="Сонік 3" data-genre="Екшн,Пригоди,Фентезі" class="swiper-slide poster">
                           <img src="./images/sonic.jpg" alt="Сонік 3">
                           <h3>Сонік 3</h3>
                           <p>Екшн/Пригоди/Фентезі</p>
                           <span>2024</span>
                       </div>
-                      <div data-name="Мавпа" class="swiper-slide poster" id="search">
+                      <div data-name="Мавпа" data-genre="Жахи" class="swiper-slide poster" id="search">
                           <img src="./images/monkey.png" alt="Мавпа">
                           <h3>Мавпа</h3>
                           <p>Жахи</p>
                           <span>2025</span>
                       </div>
-                      <div data-name="Прокляття Брідж-Голлоу" class="swiper-slide poster">
+                      <div data-name="Прокляття Брідж-Голлоу" data-genre="Пригоди,Жахи,Комедія" class="swiper-slide poster">
                           <img src="./images/curse.jpg" alt="Прокляття Брідж-Голлоу">
                           <h3>Прокляття Брідж-Голлоу</h3>
                           <p>Пригоди/Жахи/Комедія</p>
                           <span>2022</span>
                       </div>
-                      <div data-name="Нарруто" class="swiper-slide poster">
+                      <div data-name="Нарруто" data-genre="Аніме" class="swiper-slide poster">
                           <img src="./images/naruto.jpg" alt="Наруто">
                           <h3>Наруто</h3>
                           <p>Аніме</p>
                           <span>2014</span>
                       </div>
-                      <div data-name="Воно" class="swiper-slide poster">
+                      <div data-name="Воно" data-genre="Жахи,Драма" class="swiper-slide poster">
                           <img src="./images/it.jpg" alt="Воно">
                           <h3>Воно</h3>
                           <p>Жахи/Драма</p>
                           <span>2017</span>
                       </div>
-                      <div data-name="Франкенвіні" class="swiper-slide poster">
+                      <div data-name="Франкенвіні" data-genre="Анімація,Комедія" class="swiper-slide poster">
                           <img src="./images/frankenweenie.jpg" alt="Франкенвіні">
                           <h3>Франкенвіні</h3>
                           <p>Анімація/Комедія</p>
                           <span>2012</span>
                       </div>
-                      <div data-name="Монстри на канікулах" class="swiper-slide poster">
+                      <div data-name="Монстри на канікулах" data-genre="Анімація,Комедія" class="swiper-slide poster">
                           <img src="./images/hotel-transylvania.jpg" alt="Монстри на канікулах">
                           <h3>Монстри на канікулах</h3>
                           <p>Анімація/Комедія</p>
                           <span>2012</span>
                       </div>
-                      <div data-name="Закляття" class="swiper-slide poster">
+                      <div data-name="Закляття" data-genre="Жахи,Містика" class="swiper-slide poster">
                           <img src="./images/the-conjuring.jpg" alt="Закляття">
                           <h3>Закляття</h3>
                           <p>Жахи/Містика</p>
@@ -104,49 +121,49 @@
         <div class="swiper-area-wrapper">
             <div class="swiper-container family-swiper">
                 <div class="swiper-wrapper">
-                    <div data-name="Думками навиворіт 2" class="swiper-slide poster">
+                    <div data-name="Думками навиворіт 2" data-genre="Мультфільм" class="swiper-slide poster">
                         <img src="./images/family2.jpg" alt="Думками навиворіт 2">
                         <h3>Думками навиворіт 2</h3>
                         <p>Мультфільм</p>
                         <span>2024</span>
                     </div>
-                    <div data-name="Дикий робот" class="swiper-slide poster">
+                    <div data-name="Дикий робот" data-genre="Дитячий,Наукова фантастика" class="swiper-slide poster">
                         <img src="./images/robot.jpg" alt="Дикий робот">
                         <h3>Дикий робот</h3>
                         <p>Дитячий/Наукова фантастика</p>
                         <span>2024</span>
                     </div>
-                    <div data-name="Порятунок Рубі" class="swiper-slide poster">
+                    <div data-name="Порятунок Рубі" data-genre="Драми,Сімейні,Біографія" class="swiper-slide poster">
                         <img src="./images/ruby.jpg" alt="Порятунок Рубі">
                         <h3>Порятунок Рубі</h3>
                         <p>Драми/Сімейні/Біографія</p>
                         <span>2022</span>
                     </div>
-                    <div data-name="Сам удома" class="swiper-slide poster">
+                    <div data-name="Сам удома" data-genre="Дитячий,Комедія" class="swiper-slide poster">
                         <img src="./images/home-alone.jpg" alt="Сам удома">
                         <h3>Сам удома</h3>
                         <p> Дитячий/Комедія</p>
                         <span>1990</span>
                     </div>
-                    <div data-name="Хатіко" class="swiper-slide poster">
+                    <div data-name="Хатіко" data-genre="Драма,Сімейний" class="swiper-slide poster">
                         <img src="./images/hachiko.jpg" alt="Хатіко">
                         <h3>Хатіко</h3>
                         <p>Драма/Сімейний</p>
                         <span>2009</span>
                     </div>
-                    <div data-name="Гаррі Поттер" class="swiper-slide poster">
+                    <div data-name="Гаррі Поттер" data-genre="Фентезі,Пригоди" class="swiper-slide poster">
                         <img src="./images/harry-potter.jpg" alt="Гаррі Поттер">
                         <h3>Гаррі Поттер</h3>
                         <p>Фентезі/Пригоди</p>
                         <span>2001</span>
                     </div>
-                    <div data-name="Пригоди Паддінгтона" class="swiper-slide poster">
+                    <div data-name="Пригоди Паддінгтона" data-genre="Комедія" class="swiper-slide poster">
                         <img src="./images/paddington.jpg" alt="Пригоди Паддінгтона">
                         <h3>Пригоди Паддінгтона</h3>
                         <p>Комедія</p>
                         <span>2014</span>
                     </div>
-                    <div data-name="Бембі" class="swiper-slide poster">
+                    <div data-name="Бембі" data-genre="Анімація,Пригоди,Сімейний" class="swiper-slide poster">
                         <img src="./images/bambi.jpg" alt="Бембі">
                         <h3>Бембі</h3>
                         <p>Анімація/Пригоди/Сімейний</p>
