@@ -54,16 +54,14 @@ h2 {
 }
 
 .movie-poster {
-  width: 380px;
-  height: auto;
   border-radius: 10px;
 }
 
 .movie-poster img {
-  width: 100%;
-  height: auto;
   display: block;
   border-radius: 10px; 
+  width: 25vw;
+  height: 65vh;
 }
 
 .movie-info {
