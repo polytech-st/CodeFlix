@@ -195,7 +195,7 @@ input::placeholder {
     align-items: center; /* Центруємо hero-container по вертикалі */
     /* Скоригована мінімальна висота для відповідності меншому футеру */
     min-height: calc(100vh - 100px - 100px); /* Змінено 200px на 100px для футера */
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .hero-container {
